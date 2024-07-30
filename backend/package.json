@@ -5,13 +5,13 @@
   "type": "commonjs",
   "main": "server.ts",
   "scripts": {
-    "dev": "node dist/server",
+    "dev": "nodemon server.ts",
     "build":"npm install",
     "start":"node server.ts"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "mastewald degu",
+ 
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
