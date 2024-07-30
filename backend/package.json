@@ -1,13 +1,11 @@
 {
-  "name": "backend",
+ "name": "backend",
   "version": "1.0.0",
   "description": "",
-  "type": "commonjs",
-  "main": "server.ts",
+  "main": "server.mjs",
+  "type": "module",
   "scripts": {
-    "dev": "nodemon server.ts",
-    "build":"npm install",
-    "start":"node server.ts"
+    "start": "node server.mjs"
   },
   "keywords": [],
   "author": "mastewald degu",
