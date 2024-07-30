@@ -1,4 +1,4 @@
-import express from "express";
+const express = require("express");
 import { addMessage, getLastMessage, getMessages } from "../controllers/messageController";
 import requireAuth from "../middlewares/requireAuth";
 

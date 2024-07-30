@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
-import jwt, { Secret } from "jsonwebtoken";
+import * as jwt from "jsonwebtoken";
+import { Secret } from "jsonwebtoken";
 import User from "../models/userModel";
 
 function createToken(_id: string) {

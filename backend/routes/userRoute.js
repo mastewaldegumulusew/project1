@@ -1,8 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const express = require("express");
-const userController_1 = require("../controllers/userController");
-const router = express.Router();
+var express = require("express");
+var userController_1 = require("../controllers/userController");
+var router = express.Router();
 router.post("/signup", userController_1.signUp);
 router.post("/login", userController_1.Login);
 router.delete("/delete/:id", userController_1.deleteAccount);

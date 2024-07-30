@@ -1,4 +1,4 @@
-import express from "express";
+const express = require("express");
 import { deleteAccount, findUser, Login, signUp } from "../controllers/userController";
 
 const router = express.Router();

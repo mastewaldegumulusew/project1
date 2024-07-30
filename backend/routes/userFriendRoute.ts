@@ -1,4 +1,4 @@
-import { Router } from "express";
+const { Router } = require("express");
 import { addFriend, getFriends } from "../controllers/userFriendController";
 import requireAuth from "../middlewares/requireAuth";
 

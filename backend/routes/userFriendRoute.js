@@ -1,0 +1,10 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var Router = require("express").Router;
+var userFriendController_1 = require("../controllers/userFriendController");
+var requireAuth_1 = require("../middlewares/requireAuth");
+var router = Router();
+router.use(requireAuth_1.default);
+router.post("/addFriend", userFriendController_1.addFriend);
+router.get("/", userFriendController_1.getFriends);
+exports.default = router;

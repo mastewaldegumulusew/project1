@@ -1,9 +1,12 @@
-import express, { Application } from "express";
+const express = require("express");
+import { Application } from "express";
 import mongoose from "mongoose";
-import dotevn from "dotenv";
-import cors from "cors";
+
+require("dotenv").config()
+const cors = require("cors");
 import { Server } from "socket.io";
-import http, { Server as httpServer } from "http";
+import * as http from "http";
+import { Server as httpServer } from "http";
 
 import userRoute from "./routes/userRoute";
 import userFriendRoute from "./routes/userFriendRoute";
@@ -31,7 +34,7 @@ class Connection {
                 origin: "*"
             }
         });
-        dotevn.config();
+        
         this.activeUsers = [];
     }
 

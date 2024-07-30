@@ -1,4 +1,27 @@
 "use strict";
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -12,11 +35,14 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.findUser = exports.deleteAccount = exports.Login = exports.signUp = void 0;
-const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
+exports.signUp = signUp;
+exports.Login = Login;
+exports.deleteAccount = deleteAccount;
+exports.findUser = findUser;
+const jwt = __importStar(require("jsonwebtoken"));
 const userModel_1 = __importDefault(require("../models/userModel"));
 function createToken(_id) {
-    return jsonwebtoken_1.default.sign({ _id }, process.env.SECRET, { expiresIn: "3d" });
+    return jwt.sign({ _id }, process.env.SECRET, { expiresIn: "3d" });
 }
 function signUp(req, res) {
     return __awaiter(this, void 0, void 0, function* () {
@@ -31,7 +57,6 @@ function signUp(req, res) {
         }
     });
 }
-exports.signUp = signUp;
 function Login(req, res) {
     return __awaiter(this, void 0, void 0, function* () {
         const { email, password, userName } = req.body;
@@ -45,7 +70,6 @@ function Login(req, res) {
         }
     });
 }
-exports.Login = Login;
 function deleteAccount(req, res) {
     return __awaiter(this, void 0, void 0, function* () {
         const { id } = req.params;
@@ -58,7 +82,6 @@ function deleteAccount(req, res) {
         }
     });
 }
-exports.deleteAccount = deleteAccount;
 function findUser(req, res) {
     return __awaiter(this, void 0, void 0, function* () {
         const { userName } = req.params;
@@ -73,4 +96,3 @@ function findUser(req, res) {
         }
     });
 }
-exports.findUser = findUser;
